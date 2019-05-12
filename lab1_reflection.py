@@ -37,6 +37,16 @@ class Triangle:
         s = math.sqrt(p * ( p - self.side_1) * ( p - self.side_2) * ( p - self.side_3))
         return s
         # return 'Area of triangle with sides {}, {}, {} is {}'.format(self.side_1, self.side_2, self.side_3, s)
+
+    def is_true(self):
+        if max(self.side_1, self.side_2, self.side_3) > sum([self.side_1, self.side_2, self.side_3]) / 2:
+            return False
+        else:
+            return True
+    def get_perimetr(self, *args):
+        # print(type(args))
+        return sum(args)
+
     def __repr__(self):
         return 'Triangle with sides {}, {}, {} and area {}'.format(self.side_1, self.side_2, self.side_3, self.get_area())
 
@@ -69,69 +79,70 @@ class Quadrilateral(Triangle):
     #     print('hello')
 
 
-tr = Triangle(a=3, b=4, c=5)
-print('Area of Triangle:')
-print(tr.get_area())
+if __name__ == '__main__':
 
-q = Quadrilateral(a=3, b=4, c=3, d=4, diagonal=5)
-print('Area of Quadrilateral:')
-print(q.get_area())
+    tr = Triangle(a=3, b=4, c=5)
+    print('Area of Triangle:')
+    print(tr.get_area())
 
-print('toString methods:')
-print(q)
-print(tr)
+    q = Quadrilateral(a=3, b=4, c=3, d=4, diagonal=5)
+    print('Area of Quadrilateral:')
+    print(q.get_area())
 
-
-
-print('Name:')
-print(q.__class__.__name__)
-print('Attr and types:')
-for field, value in q.__dict__.items():
-    print(field, type(value))
-
-# print(Quadrilateral(3, 4, 3, 4, 5).__doc__)
-# print(dir(q))
-# print(q.__doc__)
-# print(q.__dict__)
-print('Methods:')
-# print(inspect.getmembers(q, predicate=inspect.ismethod))
-
-for method in inspect.getmembers(q, predicate=inspect.ismethod):
-    # print(type(method[1]))
-    print(method[0])
-    print()
-
-print('Invoke:')
-class_name = "Quadrilateral"
-method = "get_area"
-obj = globals()[class_name](a=3, b=4, c=3, d=4, diagonal=5)
-answer = getattr(obj, method)()
-print(answer)
+    print('toString methods:')
+    print(q)
+    print(tr)
 
 
-print('Superclass:')
-# print(super(q.__class__))
-print(inspect.getmro(Quadrilateral)[1])
-print('-----------------------------------------')
+    print('Name:')
+    print(q.__class__.__name__)
+    print('Attr and types:')
+
+    for field, value in q.__dict__.items():
+        print(field, type(value))
+
+        # print(Quadrilateral(3, 4, 3, 4, 5).__doc__)
+        # print(dir(q))
+        # print(q.__doc__)
+        # print(q.__dict__)
+        print('Methods:')
+        # print(inspect.getmembers(q, predicate=inspect.ismethod))
+
+    for method in inspect.getmembers(q, predicate=inspect.ismethod):
+        # print(type(method[1]))
+        print(method[0])
+        print()
+
+        print('Invoke:')
+        class_name = "Quadrilateral"
+        method = "get_area"
+        obj = globals()[class_name](a=3, b=4, c=3, d=4, diagonal=5)
+        answer = getattr(obj, method)()
+        print(answer)
+
+        print('Superclass:')
+        # print(super(q.__class__))
+        print(inspect.getmro(Quadrilateral)[1])
+        print('-----------------------------------------')
 
 
-#
-# def myfunc():
-#     felf = globals()[inspect.getframeinfo(inspect.currentframe()).function]
-#     print("** myfunc inspect : %s"%felf.__name__)
-#
-#     felf = globals()[sys._getframe().f_code.co_name]
-#     print("** myfunc globals : %s"%felf.__name__)
-#
-#     print( 'wrapper =' )
-#     print( myfunc )
-#
-#     print( 'done myfunc' )
+        #
+        # def myfunc():
+        #     felf = globals()[inspect.getframeinfo(inspect.currentframe()).function]
+        #     print("** myfunc inspect : %s"%felf.__name__)
+        #
+        #     felf = globals()[sys._getframe().f_code.co_name]
+        #     print("** myfunc globals : %s"%felf.__name__)
+        #
+        #     print( 'wrapper =' )
+        #     print( myfunc )
+        #
+        #     print( 'done myfunc' )
 
-#
-# myfunc()
-#
-# print(globals())
+        #
+        # myfunc()
+        #
+        # print(globals())
 
 
 
