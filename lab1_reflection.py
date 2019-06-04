@@ -24,7 +24,7 @@ class Triangle:
     side_2 = None
     side_3 = None
 
-    @check_range
+    # @check_range
     def __init__(self, a: ( 0, 50), b: (0, 50) , c: (0, 50)):
         # felf = Triangle[inspect.getframeinfo(inspect.currentframe()).function]
         # print("** myfunc inspect : %s"%felf.__name__)
