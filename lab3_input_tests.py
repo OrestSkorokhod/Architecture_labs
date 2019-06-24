@@ -69,6 +69,9 @@ controller = Controller()
 data = controller.get_data()
 View().show_data(data)
 
+class Controller:
+    def __init__(self):
+        
 
 # response = mock({'status_code': 800, 'text': 'All is ok'}, spec=requests.Response, strict=True)
 # when(requests, strict=False).get('http://google.com/').thenReturn(response)

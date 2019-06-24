@@ -58,15 +58,19 @@ class Quadrilateral(Triangle):
     diagonal = None
 
 
-    @check_range
-    def __init__(self, a: ( 0, 50), b: ( 0, 50), c: ( 0, 50), d: ( 0, 50), diagonal: ( 0, 50)):
-        # print('hello')
-        self.side_1 = a
-        self.side_2 = b
-        self.side_3 = c
-        self.side_4 = d
-        self.diagonal = diagonal
-
+    # @check_range
+    # def __init__(self, a: ( 0, 50), b: ( 0, 50), c: ( 0, 50), d: ( 0, 50), diagonal: ( 0, 50)):
+    #     # print('hello')
+    #     self.side_1 = a
+    #     self.side_2 = b
+    #     self.side_3 = c
+    #     self.side_4 = d
+    #     self.diagonal = diagonal
+    def __init__(self, triangle, side_4):
+        self.side_1 = triangle.side_1
+        self.side_2 = triangle.side_2
+        self.side_3 = triangle.side_3
+        self.side_4 = side_4
     def get_area(self):
 
         s = Triangle(a=self.side_1, b=self.side_2, c=self.diagonal).get_area() + Triangle(a=self.side_3, b=self.side_4, c=self.diagonal).get_area()
@@ -75,8 +79,12 @@ class Quadrilateral(Triangle):
     def __repr__(self):
         return 'Quadrilateral with sides {}, {}, {}, {} and area {}'.format(self.side_1, self.side_2, self.side_3, self.side_4, self.get_area())
 
+    def get_sides(self):
+        return self.side_1, self.side_2,self.side_3,self.side_4
     # def hello(self):
     #     print('hello')
+    def get_perimetr(self):
+        return self.side_1 + self.side_2 + self.side_3 + self.side_4
 
 
 if __name__ == '__main__':
@@ -148,18 +156,8 @@ if __name__ == '__main__':
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+# class Point:
+    # x
 
 
 

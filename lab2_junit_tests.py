@@ -17,7 +17,7 @@ class TestHomework(unittest.TestCase):
         self.assertEqual(Quadrilateral(a=3, b=4, c=3, d=4, diagonal=5).get_area(), 12)
 
     def test_area_5(self):
-            self.assertEqual(Quadrilateral(a=3, b=4, c=3, d=4, diagonal=5).get_area(), 24)
+        self.assertEqual(Quadrilateral(a=3, b=4, c=3, d=4, diagonal=5).get_area(), 24)
 
     def test_area_empty_1(self):
         self.assertEqual(Triangle(a=0, b=0, c=0).get_area(), 0)
